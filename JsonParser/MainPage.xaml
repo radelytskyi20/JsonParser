@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JsonParser.MainPage"
+             xmlns:views="clr-namespace:JsonParser.ViewModels">
+
+    <ContentPage.BindingContext>
+        <views:MainPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="10">
+            <Entry x:Name="InputPath" Placeholder="Json path" Text="{Binding InputPath}"/>
+            <Button Text="Parse" Command="{Binding Parse}"></Button>
+            <Label>Default Coordinates</Label>
+            <ScrollView>
+                <Editor Text="{Binding OutputDataDefaultCoordinates}" HeightRequest="200" />
+            </ScrollView>
+            <Label>Normalized Coordinates</Label>
+            <ScrollView>
+                <Editor Text="{Binding OutputDataNormalizedCoordiantes}" HeightRequest="200" />
+            </ScrollView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
