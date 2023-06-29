@@ -34,15 +34,32 @@ namespace JsonParser.Utils
                         Y0 = node.Metadata.Y,
                     };
 
+                    //without complete amount of lines
+                    //if (node.Id == edge.Source)
+                    //{
+                    //    customEdge.RouteName = edge.Metadata.lines[0];
+
+                    //    var secondNode = nodes.Find(x => x.Id == edge.Target);
+                    //    customEdge.X1 = secondNode.Metadata.X;
+                    //    customEdge.Y1 = secondNode.Metadata.Y;
+
+                    //    resultStr += customEdge.ToString() + "\n";
+                    //}
+
+                    //complete amount of lines
                     if (node.Id == edge.Source)
                     {
-                        customEdge.RouteName = edge.Metadata.lines[0];
+                        foreach (var line in edge.Metadata.lines)
+                        {
+                            customEdge.RouteName = line;
 
-                        var secondNode = nodes.Find(x => x.Id == edge.Target);
-                        customEdge.X1 = secondNode.Metadata.X;
-                        customEdge.Y1 = secondNode.Metadata.Y;
+                            var secondNode = nodes.Find(x => x.Id == edge.Target);
+                            customEdge.X1 = secondNode.Metadata.X;
+                            customEdge.Y1 = secondNode.Metadata.Y;
 
-                        resultStr += customEdge.ToString() + "\n";
+                            resultStr += customEdge.ToString() + "\n";
+                        }
+
                     }
                 }
             }

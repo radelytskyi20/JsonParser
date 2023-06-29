@@ -12,6 +12,9 @@
         <VerticalStackLayout
             Spacing="10">
             <Entry x:Name="InputPath" Placeholder="Json path" Text="{Binding InputPath}"/>
+            <Entry x:Name="InputNewMin" Placeholder="newMin" Text="{Binding InputNewMin}"/>
+            <Entry x:Name="InputNewMax" Placeholder="newMax" Text="{Binding InputNewMax}"/>
+            <Entry x:Name="InputLinesWidth" Placeholder="linesWidth" Text="{Binding InputLinesWidth}"/>
             <Button Text="Parse" Command="{Binding Parse}"></Button>
             <Label>Default Coordinates</Label>
             <ScrollView>
